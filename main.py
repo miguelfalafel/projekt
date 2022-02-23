@@ -95,7 +95,7 @@ def import_p_powiat(data_path_pow, data_path_npp):
     return powiaty_p_rok_oba
 # print(import_p_powiat(data_path,data_path_npp))
 data_path_gminy = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2020\\20210215_Gminy_2_za_2020.xlsx"
-
+data_path_gminy_l = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\Ludnosc\\Tabela_IV.xls"
 def import_p_gminy(data_path):
     if os.path.exists(data_path):
         gminy_p_rok = pd.read_excel(data_path, usecols=[0, 1, 2, 3, 4, 11], skiprows=list(range(6)),
@@ -107,4 +107,39 @@ def import_p_gminy(data_path):
     else:
         return pd.DataFrame()
     return gminy_p_rok
-print(import_p_gminy(data_path_gminy))
+# print(import_p_gminy(data_path_gminy))
+
+def import_l_gmina(data_path):
+    if os.path.exists(data_path):
+        ludnosc = pd.read_excel(data_path, usecols=list(range(3)), skiprows=list(range(7)),
+                                names=["Nazwa", "id", "Ludnosc"], dtype={0: str, 1: str}).dropna(how='any')
+    else:
+        return pd.DataFrame()
+    return ludnosc
+#tax
+t= 0.17
+#working percent
+wp = 0.55
+def avg_income(pity, ludnosc):
+    # #Zapobiegniecie zmian argumentow
+    # pity = pity.copy(deep=True)
+    # ludnosc = ludnosc.copy(deep=True)
+    pit = pity[['id', 'Dochody wykonane']].join(ludnosc.set_index('id'), on='id',how='left', sort=True)
+    pit['avg_income'] = pit['Dochody wykonane'] / (pit['Ludnosc'] * wp * t)
+    if pity.shape[0] != ludnosc.shape[0]:
+        print("Liczby JST w plikach różnią się")
+    return pit
+
+# print(avg_income(import_p_gminy(data_path_gminy),import_l_gmina(data_path_gminy_l)))
+
+def difference_pit(data2019, data2020):
+    data = data2020.join(data2019.set_index('id'), on='id', how='left', lsuffix=" 2020", rsuffix=" 2019", sort=True)
+    data['Różnica'] = data['Dochody wykonane 2020'] - data['Dochody wykonane 2019']
+    if data2019.shape[0] != data2020.shape[0]:
+        print("Liczby JST w plikach różnią się")
+    return data
+data_pow_2020 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2020\\20210211_Powiaty_za_2020.xlsx"
+data_pow_2019 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2019\\20200214_Powiaty_za_2019.xlsx"
+data_2019 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2019\\20200214_Gminy_za_2019.xlsx"
+data_2020 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2020\\20210215_Gminy_2_za_2020.xlsx"
+print(difference_pit(import_p_gminy(data_pow_2019),import_p_gminy(data_pow_2020)))
