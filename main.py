@@ -33,10 +33,9 @@ data_path = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data
 
 def import_p_wojew(data_path):
     if os.path.exists(data_path):
-        wojew_p_rok = pd.read_excel(data_path, usecols=[0,4,11], skiprows=list(range(6)), names = ['WK', 'Nazwa', 'Dochody wykonane'], engine = 'openpyxl', dtype={0: str, 1: str})
+        wojew_p_rok = pd.read_excel(data_path, usecols=[0,4,11], skiprows=list(range(6)), names = ['id', 'Nazwa', 'Dochody wykonane'], engine = 'openpyxl', dtype={0: str, 1: str})
     else:
         return pd.DataFrame()
-
     return wojew_p_rok
 # print(import_p_wojew(data_path))
 
@@ -142,4 +141,82 @@ data_pow_2020 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\
 data_pow_2019 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2019\\20200214_Powiaty_za_2019.xlsx"
 data_2019 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2019\\20200214_Gminy_za_2019.xlsx"
 data_2020 = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2020\\20210215_Gminy_2_za_2020.xlsx"
-print(difference_pit(import_p_gminy(data_pow_2019),import_p_gminy(data_pow_2020)))
+# print(difference_pit(import_p_gminy(data_pow_2019),import_p_gminy(data_pow_2020)))
+def import_l_powiat(data_path):
+    if os.path.exists(data_path):
+        ludnosc = pd.read_excel(data_path, usecols=list(range(3)), skiprows=list(range(7)), names=["Nazwa", "id", "Ludnosc"], dtype={0: str, 1: str}).dropna(how='any')
+    else:
+        return pd.DataFrame()
+    return ludnosc
+
+small = avg_income(import_p_gminy(data_2020),import_l_gmina(data_path_gminy_l))
+big = avg_income(import_p_powiat(data_pow_2020,data_path_npp),import_l_powiat(data_pathlpow))
+def var_income(small,big):
+    variance=[]
+    for i in list(big['id']):
+        variance.append(small[small.id.str.match(i)]['avg_income'].var())
+    result = big
+    result['variance'] = variance
+    result = result.dropna(how='any')
+    return result
+
+# print(var_income(small,big))
+def w_avg_inc(small,big):
+    suma_wazona=[]
+    small1=small
+    small1 = small1[-small1.id.str.match('......4')]
+    small1 = small1[-small1.id.str.match('......5')]
+    small1['waga'] =  small1['avg_income'] * small1['Ludnosc']
+    for i in list(big['id']):
+        suma_wazona.append(small1[small1.id.str.match(i)]['waga'].sum())
+    result = big
+    result['waz_avg_inc'] = suma_wazona / result['Ludnosc']
+    result = result[result.waz_avg_inc!=0]
+    return result
+# print(w_avg_inc(small,big))
+import numpy as np
+import matplotlib.pyplot as plot
+def bar(data, nazwa):
+    dane = data.sort_values(by=['avg_income'])
+    xy = len(dane['id'])
+    # y_pos = np.arange(len(data['average_income']))
+    plot.bar(x=np.arange(xy), height=dane['avg_income'], align='center')
+    if xy == 16:
+        labels = dane['Nazwa']
+        plot.xticks(np.arange(xy),labels, rotation='vertical')
+    plot.ylabel('Średni dochód')
+    plot.title(nazwa)
+    # fig = plt.gcf()
+    # fig.set_size_inches(10, 8)
+    plot.show()
+
+def import_l_wojew(data_path):
+    if os.path.exists(data_path):
+        ludnosc = pd.read_excel(data_path, usecols=list(range(2)), skiprows=list(range(7)),  names = ["Nazwa",  "Ludnosc"], dtype={0: str}, nrows= 16)
+        #dodanie WK
+        WK = ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30', '32']
+        ludnosc.insert(loc=0, column="id", value=WK)
+    else:
+        return pd.DataFrame()
+    return ludnosc
+data_wojew_p = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\pit2020\\20210211_Województwa_za_2020.xlsx"
+data_wojew_l = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data\\Ludnosc\\Tabela_II.xls"
+smallw = avg_income(import_p_wojew(data_wojew_p),import_l_wojew(data_wojew_l))
+
+# bar(smallw, "tytuł")
+def pie_diff(data, nazwa):
+        plot.pie(x=(data['Różnica'] > 0).value_counts())
+        plot.title(nazwa)
+        plot.legend(loc='lower center', labels=['Większe dochody w 2020', 'Większe dochody w 2019'])
+        plot.gcf().set_size_inches(8, 8)
+        plot.show()
+
+data_diff = difference_pit(import_p_gminy(data_2019),import_p_gminy(data_2020))
+# pie_diff(data_diff, "Nazwa")
+
+path = "C:\\Users\\micha\\Desktop\\Śmiecie\\studia\\wężyk\\projekt\\data"
+def export_excel(df, path, nazwa):
+    df.to_excel(excel_writer=path + "\\" + nazwa + ".xlsx", engine="openpyxl")
+    return 0
+
+export_excel(w_avg_inc(small,big),path, "wavginc")
