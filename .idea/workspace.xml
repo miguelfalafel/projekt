@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6a21c4a-dbf1-4663-8c1a-6822b2498711" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pit_pl/pit_package/analiza/charts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pit_pl/pit_package/analiza/var_income.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pit_pl/pit_package/analiza/waz_avg_inc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Ludnosc/Tabela_IV.xls" beforeDir="false" afterPath="$PROJECT_DIR$/data/Ludnosc/Tabela_IV.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pit_pl/pit_package/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pit_pl/pit_package/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pit_pl/pit_package/analiza/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pit_pl/pit_package/analiza/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pit_pl/pit_package/analiza/diff_19_20.py" beforeDir="false" afterPath="$PROJECT_DIR$/pit_pl/pit_package/analiza/diff_19_20.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pit_pl/pit_package/dane_export/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pit_pl/pit_package/dane_export/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pit_pl/pit_package/dane_export/export_dane.py" beforeDir="false" afterPath="$PROJECT_DIR$/pit_pl/pit_package/dane_export/export_dane.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +88,7 @@
       <workItem from="1645611532176" duration="9630000" />
       <workItem from="1645692842905" duration="7195000" />
       <workItem from="1645703557889" duration="220000" />
-      <workItem from="1645704800552" duration="4709000" />
+      <workItem from="1645704800552" duration="4910000" />
     </task>
     <servers />
   </component>
