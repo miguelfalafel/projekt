@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a21c4a-dbf1-4663-8c1a-6822b2498711" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/plik_diff.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/small.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/smallw.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/wavginc.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pit_pl/pit_package/analiza/charts.py" beforeDir="false" afterPath="$PROJECT_DIR$/pit_pl/pit_package/analiza/charts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/report.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +90,7 @@
       <workItem from="1645611532176" duration="9630000" />
       <workItem from="1645692842905" duration="7195000" />
       <workItem from="1645703557889" duration="220000" />
-      <workItem from="1645704800552" duration="8932000" />
+      <workItem from="1645704800552" duration="9567000" />
     </task>
     <servers />
   </component>

@@ -15,7 +15,7 @@ def bar_avg(data, nazwa):
     plot.show()
 
 def pie_diff(data, nazwa):
-     plot.pie(x=(data['Różnica'] > 0).value_counts())
+     plot.pie(x=(data['Różnica'] > 0).value_counts(), autopct='%1.1f%%')
      plot.title(nazwa)
      plot.legend(loc='lower center', labels=['Większe dochody w 2020', 'Większe dochody w 2019'])
      plot.gcf().set_size_inches(8, 8)
