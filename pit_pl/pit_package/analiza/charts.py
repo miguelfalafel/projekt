@@ -1,5 +1,5 @@
 import numpy as np
-import mathplot.pyplot as plot
+import matplotlib.pyplot as plot
 
 def bar_avg(data, nazwa):
     dane = data.sort_values(by=['avg_income'])
