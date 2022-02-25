@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a21c4a-dbf1-4663-8c1a-6822b2498711" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Avg_Inc gminy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Avg_Inc gminy.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Avg_Inc powiaty.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Avg_Inc powiaty.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Avg_Inc wojew.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Avg_Inc wojew.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Róznice powiaty.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Róznice powiaty.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Róznice wojew.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Róznice wojew.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Różnice gminy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Różnice gminy.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wariancja powiaty.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Wariancja powiaty.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Wariancja województwa.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Wariancja województwa.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Ważone avg_inc powiaty.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Ważone avg_inc powiaty.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Ważone avg_inc województwa.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Ważone avg_inc województwa.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +100,8 @@
       <workItem from="1645611532176" duration="9630000" />
       <workItem from="1645692842905" duration="7195000" />
       <workItem from="1645703557889" duration="220000" />
-      <workItem from="1645704800552" duration="10552000" />
+      <workItem from="1645704800552" duration="11066000" />
+      <workItem from="1645781068334" duration="592000" />
     </task>
     <servers />
   </component>
@@ -110,6 +122,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/projekt$Unnamed.coverage" NAME="main Coverage Results" MODIFIED="1645704625989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/projekt$main.coverage" NAME="main Coverage Results" MODIFIED="1645712910617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/projekt$main.coverage" NAME="main Coverage Results" MODIFIED="1645781400785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
